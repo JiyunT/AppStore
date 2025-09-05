@@ -2,11 +2,12 @@
 require_once '../config.php';
 require_once '../includes/functions.php';
 
-// 检查管理员是否已登录
-if (!isAdminLoggedIn()) {
-    header('Location: login.php');
-    exit();
+/*
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
 }
+*/
 
 $pageTitle = '关于系统 - ' . SITE_NAME;
 ?>
