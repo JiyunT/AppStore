@@ -8,8 +8,8 @@
                 <div class="col-md-3">
                     <h5>联系我们</h5>
                     <ul class="list-unstyled">
-                        <li><i class="bi bi-envelope"></i> 123@456.com</li>
-                        <li><i class="bi bi-telephone"></i> 400-123-4567</li>
+                        <li><i class="bi bi-envelope"></i> <?php echo CONTACT_EMAIL; ?></li>
+                        <li><i class="bi bi-telephone"></i> <?php echo CONTACT_PHONE; ?></li>
                     </ul>
                 </div>
             </div>

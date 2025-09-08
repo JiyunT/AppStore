@@ -17,7 +17,8 @@ define('DB_NAME', 'app_store');  // 数据库名称
 
 // 站点基本设置
 define('SITE_NAME', '应用商店');    // 页面标题
-
+define('CONTACT_EMAIL', '123@456.com'); // 联系邮箱
+define('CONTACT_PHONE', '400-123-4567'); // 联系电话
 
 
 define('APP_VERSION', '1.1.1 Alpha');     // 项目版本
