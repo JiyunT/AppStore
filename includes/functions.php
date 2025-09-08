@@ -248,4 +248,42 @@ function displayAppImage($app, $defaultImage = 'assets/images/default-app.png') 
                  alt="' . displayAppName($app) . '"
                  onerror="this.src=\'' . $defaultImage . '\'">';
 }
+
+/**
+ * 获取排行榜数据
+ * 
+ * @param int $limit 获取的应用数量
+ * @return array 排行榜数据
+ */
+function getRankingApps($limit = 10) {
+    global $conn;
+    
+    // 检查数据库连接
+    if (!$conn) {
+        error_log("数据库连接不存在");
+        return [];
+    }
+    
+    $sql = "SELECT * FROM apps WHERE download_count > 0 ORDER BY download_count DESC LIMIT ?";
+    $stmt = $conn->prepare($sql);
+    
+    // 检查prepare是否成功
+    if (!$stmt) {
+        error_log("SQL语句准备失败: " . $conn->error);
+        return [];
+    }
+    
+    $stmt->bind_param("i", $limit);
+    $stmt->execute();
+    
+    $result = $stmt->get_result();
+    
+    // 检查查询结果
+    if (!$result) {
+        error_log("查询执行失败: " . $stmt->error);
+        return [];
+    }
+    
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
 ?>

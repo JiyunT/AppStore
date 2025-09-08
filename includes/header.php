@@ -44,7 +44,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">排行榜</a> 
+                        <a class="nav-link" href="ranking.php">排行榜</a> 
                     </li>
                 </ul>
                 <form class="d-flex" action="search.php" method="GET">
