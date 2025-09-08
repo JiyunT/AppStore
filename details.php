@@ -35,11 +35,15 @@ include 'includes/header.php';
             </div>
         </div>
         <div class="col-md-8">
-            <h2><?php echo $app['name']; ?></h2>
-            <p class="text-muted">版本: <?php echo $app['version']; ?> | 大小: <?php echo $app['size']; ?> | 下载量: <?php echo $app['download_count']; ?></p>
+            <h2><?php echo displayAppName($app); ?></h2>
+            <p class="text-muted">
+                版本: <?php echo displayAppVersion($app); ?> | 
+                大小: <?php echo displayAppSize($app); ?> | 
+                下载量: <?php echo displayAppDownloadCount($app); ?>
+            </p>
             <hr>
             <h4>应用描述</h4>
-            <p><?php echo nl2br($app['description']); ?></p>
+            <p><?php echo nl2br(htmlspecialchars($app['description'])); ?></p>
             
             <h4 class="mt-4">应用截图</h4>
             <div class="row">

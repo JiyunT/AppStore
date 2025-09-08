@@ -145,4 +145,107 @@ function isAdminLoggedIn() {
     // 检查session中的admin_logged_in变量
     return isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
 }
+
+/**
+ * 显示应用下载次数
+ * 
+ * @param array $app 应用数据数组
+ * @return string 格式化后的下载次数
+ */
+function displayAppDownloadCount($app) {
+    if (!isset($app['download_count'])) {
+        return '0';
+    }
+    
+    $count = (int)$app['download_count'];
+    
+    // 根据下载量显示不同的单位
+    if ($count >= 10000) {
+        return round($count / 10000, 1) . '万';
+    } elseif ($count >= 1000) {
+        return round($count / 1000, 1) . '千';
+    }
+    
+    return (string)$count;
+}
+
+/**
+ * 显示应用大小
+ * 
+ * @param array $app 应用数据数组
+ * @return string 格式化后的应用大小
+ */
+function displayAppSize($app) {
+    if (!isset($app['size'])) {
+        return '未知';
+    }
+    
+    return htmlspecialchars($app['size']);
+}
+
+/**
+ * 显示应用版本
+ * 
+ * @param array $app 应用数据数组
+ * @return string 格式化后的应用版本
+ */
+function displayAppVersion($app) {
+    if (!isset($app['version'])) {
+        return '未知';
+    }
+    
+    return htmlspecialchars($app['version']);
+}
+
+/**
+ * 显示应用名称
+ * 
+ * @param array $app 应用数据数组
+ * @return string 格式化后的应用名称
+ */
+function displayAppName($app) {
+    if (!isset($app['name'])) {
+        return '未命名应用';
+    }
+    
+    return htmlspecialchars($app['name']);
+}
+
+/**
+ * 显示应用描述
+ * 
+ * @param array $app 应用数据数组
+ * @param int $length 截取长度
+ * @return string 格式化后的应用描述
+ */
+function displayAppDescription($app, $length = 100) {
+    if (!isset($app['description'])) {
+        return '';
+    }
+    
+    $description = $app['description'];
+    $trimmed = mb_substr($description, 0, $length, 'UTF-8');
+    
+    if (mb_strlen($description, 'UTF-8') > $length) {
+        return htmlspecialchars($trimmed) . '...';
+    }
+    
+    return htmlspecialchars($trimmed);
+}
+
+/**
+ * 显示应用图片
+ * 
+ * @param array $app 应用数据数组
+ * @param string $defaultImage 默认图片路径
+ * @return string 图片HTML代码
+ */
+function displayAppImage($app, $defaultImage = 'assets/images/default-app.png') {
+    $imageUrl = !empty($app['image']) ? htmlspecialchars($app['image'], ENT_QUOTES) : $defaultImage;
+    
+    return '<img src="' . $imageUrl . '" 
+                 class="card-img-top" 
+                 alt="' . displayAppName($app) . '"
+                 onerror="this.src=\'' . $defaultImage . '\'">';
+}
 ?>

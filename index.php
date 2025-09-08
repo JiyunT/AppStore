@@ -69,25 +69,24 @@ To get to you -->
         <div class="col-md-4 mb-4 app-item">
             <div class="card h-100">
                 <!-- 应用图片，没图片时用默认图 -->
-                <?php $imgUrl = !empty($appData['image']) 
-                    ? htmlspecialchars($appData['image'], ENT_QUOTES) 
-                    : 'assets/images/default-app.png'; ?>
-                <img src="<?= $imgUrl ?>" 
-                     class="card-img-top" 
-                     alt="<?= htmlspecialchars($appData['name']) ?>"
-                     onerror="this.src='assets/images/default-app.png'">
+                <?php echo displayAppImage($appData); ?>
                 
                 <div class="card-body">
-                    <h5 class="card-title"><?= $appData['name'] ?></h5>
+                    <h5 class="card-title"><?php echo displayAppName($appData); ?></h5>
                     <!-- 描述截断（100）-->
                     <p class="card-text">
-                        <?= mb_substr($appData['description'], 0, 100, 'UTF-8') ?>
-                        <?php if (strlen($appData['description']) > 100): ?>...<?php endif; ?>
+                        <?php echo displayAppDescription($appData, 100); ?>
                     </p>
-                    <a href="details.php?id=<?= $appData['id'] ?>" 
+                    <a href="details.php?id=<?php echo $appData['id']; ?>" 
                        class="btn btn-primary btn-sm">
                        查看详情 <i class="fas fa-chevron-right"></i>
                     </a>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>
+                        下载量: <?php echo displayAppDownloadCount($appData); ?> |
+                        版本: <?php echo displayAppVersion($appData); ?>
+                    </small>
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@ require_once 'includes/header.php';
 ?>
 
 <div class="container mt-4">
-    <h2><?php echo $category ? $category['name'] : '所有分类'; ?></h2>
+    <h2><?php echo $category ? htmlspecialchars($category['name']) : '所有分类'; ?></h2>
     
     <div class="row">
         <?php if (empty($apps)): ?>
@@ -50,11 +50,17 @@ require_once 'includes/header.php';
             <?php foreach ($apps as $app): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="<?php echo $app['icon_path']; ?>" class="card-img-top" alt="<?php echo $app['name']; ?>" style="height: 200px; object-fit: contain;">
+                        <?php echo displayAppImage($app, 'assets/images/default-app.png'); ?>
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $app['name']; ?></h5>
-                            <p class="card-text"><?php echo substr($app['description'], 0, 100); ?>...</p>
+                            <h5 class="card-title"><?php echo displayAppName($app); ?></h5>
+                            <p class="card-text"><?php echo displayAppDescription($app, 100); ?></p>
                             <a href="details.php?id=<?php echo $app['id']; ?>" class="btn btn-primary">查看详情</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>
+                                下载量: <?php echo displayAppDownloadCount($app); ?> |
+                                版本: <?php echo displayAppVersion($app); ?>
+                            </small>
                         </div>
                     </div>
                 </div>
