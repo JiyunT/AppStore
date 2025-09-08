@@ -28,12 +28,19 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
             bottom: 0;
             left: 0;
             z-index: 100;
-            padding: 48px 0 0;
+            padding: 0;
             box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
         }
         .main-content {
-            margin-left: 250px;
+            margin-left: 200px;
             padding: 20px;
+        }
+        .layui-logo {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            border-bottom: 1px solid #46494e;
         }
     </style>
 </head>
@@ -94,5 +101,10 @@ Feel it in my bones
     </div>
     
     <script src="//unpkg.com/layui@2.11.5/dist/layui.js"></script>
+    <script>
+    layui.use(['element'], function(){
+        var element = layui.element;
+    });
+    </script>
 </body>
 </html>

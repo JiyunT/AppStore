@@ -17,6 +17,9 @@ define('DB_NAME', 'app_store');  // 数据库名称
 
 // 站点基本设置
 define('SITE_NAME', '应用商店');    // 页面标题
+
+
+
 define('APP_VERSION', '1.1.1 Alpha');     // 项目版本
 
 

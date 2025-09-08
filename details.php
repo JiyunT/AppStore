@@ -25,11 +25,11 @@ include 'includes/header.php';
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4">
-            <?php if(!empty($app['icon_path']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $app['icon_path'])): ?>
-                <img src="<?php echo $app['icon_path']; ?>" class="img-fluid rounded" alt="<?php echo $app['name']; ?>">
-            <?php else: ?>
-                <img src="assets/images/default-app.png" class="img-fluid rounded" alt="默认图片">
-            <?php endif; ?>
+            <!-- 应用图片，没图片时用默认图 -->
+            <?php $imgUrl = !empty($app['icon_path']) 
+                ? htmlspecialchars($app['icon_path'], ENT_QUOTES) 
+                : 'assets/images/default-app.png'; ?>
+            <img src="<?= $imgUrl ?>" class="img-fluid rounded" alt="<?= htmlspecialchars($app['name']) ?>" onerror="this.src='assets/images/default-app.png'">
             <div class="mt-3">
                 <a href="<?php echo !empty($app['file_path']) ? htmlspecialchars($app['file_path'], ENT_QUOTES) : '#'; ?>" class="btn btn-success btn-block">下载应用</a>
             </div>
