@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 /*
  * 应用商店配置文件
- * 最后更新：2025-8-16
+ * 最后更新：2025-11-20
  */
 
 // 数据库配置
@@ -21,7 +21,7 @@ define('CONTACT_EMAIL', '123@456.com'); // 联系邮箱
 define('CONTACT_PHONE', '400-123-4567'); // 联系电话
 
 
-define('APP_VERSION', '1.1.1 Alpha');     // 项目版本
+define('APP_VERSION', '1.2');     // 项目版本
 
 
 /**
