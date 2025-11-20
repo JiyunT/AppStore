@@ -1,6 +1,4 @@
-<?php
-// 侧边栏组件
-?>
+   <!-- 侧边栏组件  -->
 <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
         <!-- 左侧导航区域 -->
