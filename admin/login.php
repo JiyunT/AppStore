@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 管理员登录</title>
-    <link rel="stylesheet" href="//unpkg.com/layui@2.13.1/dist/css/layui.css">
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
     <style>
         body {
             width: 100%;
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
     
-    <script src="//unpkg.com/layui@2.13.1/dist/layui.js"></script>
+    <script src="../assets/layui/layui.js"></script>
     <script>
     layui.use('form', function(){
       var form = layui.form;

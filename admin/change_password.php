@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $old_password = $_POST['old_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
-    
+
     // 验证输入
     if (empty($old_password) || empty($new_password) || empty($confirm_password)) {
         $error = "所有字段都是必填的";
@@ -34,17 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        
+
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-        
+
         if ($user && password_verify($old_password, $user['password'])) {
             // 更新密码
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
             $update_sql = "UPDATE admins SET password = ? WHERE username = ?";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bind_param("ss", $hashed_password, $username);
-            
+
             if ($update_stmt->execute()) {
                 $success = "密码修改成功";
             } else {
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 修改密码</title>
-    <link rel="stylesheet" href="//unpkg.com/layui@2.13.1/dist/css/layui.css">
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
     <style>
         .layui-layout-admin .layui-side {
             position: fixed;
@@ -82,19 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="layui-layout layui-layout-admin">
         <?php include 'sidebar.php'; ?>
-        
+
         <div class="main-content">
             <h2>修改密码</h2>
             <hr>
-            
+
             <?php if (isset($error)): ?>
                 <div class="layui-alert layui-alert-danger"><?php echo $error; ?></div>
             <?php endif; ?>
-            
+
             <?php if (isset($success)): ?>
                 <div class="layui-alert layui-alert-success"><?php echo $success; ?></div>
             <?php endif; ?>
-            
+
             <div class="layui-card">
                 <div class="layui-card-body">
                     <form class="layui-form" method="POST">
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input type="password" name="old_password" required lay-verify="required" placeholder="请输入旧密码" class="layui-input">
                             </div>
                         </div>
-                        
+
                         <div class="layui-form-item">
                             <label class="layui-form-label">新密码</label>
                             <div class="layui-input-block" style="max-width: 400px;">
@@ -112,14 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="layui-form-mid layui-word-aux">密码长度至少6位</div>
                             </div>
                         </div>
-                        
+
                         <div class="layui-form-item">
                             <label class="layui-form-label">确认密码</label>
                             <div class="layui-input-block" style="max-width: 400px;">
                                 <input type="password" name="confirm_password" required lay-verify="required" placeholder="请再次输入新密码" class="layui-input">
                             </div>
                         </div>
-                        
+
                         <div class="layui-form-item">
                             <div class="layui-input-block" style="max-width: 400px;">
                                 <button class="layui-btn" lay-submit lay-filter="formDemo">修改密码</button>
@@ -131,8 +131,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
-    
-    <script src="//unpkg.com/layui@2.13.1/dist/layui.js"></script>
+
+    <script src="../assets/layui/layui.js"></script>
     <script>
     layui.use('form', function(){
       var form = layui.form;

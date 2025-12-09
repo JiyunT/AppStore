@@ -30,7 +30,7 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 分类管理</title>
-    <link rel="stylesheet" href="//unpkg.com/layui@2.13.1/dist/css/layui.css">
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
     <style>
         .layui-layout-admin .layui-side {
             position: fixed;
@@ -89,6 +89,6 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
         </div>
     </div>
     
-    <script src="//unpkg.com/layui@2.13.1/dist/layui.js"></script>
+    <script src="../assets/layui/layui.js"></script>
 </body>
 </html>

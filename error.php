@@ -10,7 +10,7 @@ if (!defined('SITE_NAME')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>错误 - <?php echo SITE_NAME; ?></title>
-    <link href="//unpkg.com/layui@2.11.5/dist/css/layui.css" rel="stylesheet">
+    <link href="assets/layui/css/layui.css" rel="stylesheet">
     <style>
         body {
             font-family: "Helvetica Neue", sans-serif;

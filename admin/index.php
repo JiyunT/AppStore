@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 后台管理</title>
-    <link rel="stylesheet" href="//unpkg.com/layui@2.13.1/dist/css/layui.css">
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
     <style>
         .layui-layout-admin .layui-side {
             position: fixed;
@@ -100,7 +100,7 @@ Feel it in my bones
         </div>
     </div>
     
-    <script src="//unpkg.com/layui@2.13.1/dist/layui.js"></script>
+    <script src="../assets/layui/layui.js"></script>
     <script>
     layui.use(['element'], function(){
         var element = layui.element;
