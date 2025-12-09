@@ -31,26 +31,12 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 分类管理</title>
     <link rel="stylesheet" href="../assets/layui/css/layui.css">
-    <style>
-        .layui-layout-admin .layui-side {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 48px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
-<body>
+<body class="categories-page">
     <div class="layui-layout layui-layout-admin">
         <?php include 'sidebar.php'; ?>
-        
+
         <div class="main-content">
             <h2>分类管理</h2>
             <hr>

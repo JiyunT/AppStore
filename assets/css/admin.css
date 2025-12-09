@@ -1,0 +1,51 @@
+/* 后台管理页面自定义样式 */
+.layui-layout-admin .layui-side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+.layui-logo {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #46494e;
+}
+
+/* 针对特定页面的旧样式 */
+body.add-category-page .layui-layout-admin .layui-side,
+body.add-app-page .layui-layout-admin .layui-side,
+body.edit-category-page .layui-layout-admin .layui-side,
+body.categories-page .layui-layout-admin .layui-side,
+body.change-password-page .layui-layout-admin .layui-side,
+body.settings-page .layui-layout-admin .layui-side {
+    padding: 48px 0 0;
+}
+
+body.add-category-page .main-content,
+body.add-app-page .main-content,
+body.edit-category-page .main-content,
+body.categories-page .main-content,
+body.change-password-page .main-content,
+body.settings-page .main-content {
+    margin-left: 250px;
+}
+
+body.edit-app-page .layui-layout-admin .layui-side {
+    padding: 56px 0 0;
+    background-color: #f8f9fa;
+}
+
+body.edit-app-page .main-content {
+    margin-left: 220px;
+}

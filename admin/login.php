@@ -44,25 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 管理员登录</title>
     <link rel="stylesheet" href="../assets/layui/css/layui.css">
-    <style>
-        body {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f5f5f5;
-        }
-        .login-form {
-            width: 400px;
-            padding: 30px;
-            background: #fff;
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/main.css">
 </head>
-<body>
+<body class="login-page">
     <div class="login-container">
         <div class="login-form">
             <h2 class="layui-form-label" style="text-align: center;">管理员登录</h2>

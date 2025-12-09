@@ -31,28 +31,7 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 应用管理</title>
     <link rel="stylesheet" href="../assets/layui/css/layui.css">
-    <style>
-        .layui-layout-admin .layui-side {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        }
-        .main-content {
-            margin-left: 200px;
-            padding: 20px;
-        }
-        .layui-logo {
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            font-size: 18px;
-            border-bottom: 1px solid #46494e;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
     <div class="layui-layout layui-layout-admin">

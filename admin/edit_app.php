@@ -62,24 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 编辑应用</title>
     <link rel="stylesheet" href="../assets/layui/css/layui.css">
-    <style>
-        .layui-layout-admin .layui-side {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 56px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-            background-color: #f8f9fa;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
-<body>
+<body class="edit-app-page">
     <?php include 'sidebar.php'; ?>
-    
-    <div class="main-content container-fluid py-4" style="margin-left: 220px;">
+
+    <div class="main-content container-fluid py-4">
         <div class="container mt-4">
             <h2 class="mb-4">编辑应用</h2>
             <form class="layui-form" method="POST">
