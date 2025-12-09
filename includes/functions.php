@@ -241,12 +241,10 @@ function displayAppDescription($app, $length = 100) {
  * @return string 图片HTML代码
  */
 function displayAppImage($app, $defaultImage = 'assets/images/default-app.png') {
-    $imageUrl = !empty($app['image']) ? htmlspecialchars($app['image'], ENT_QUOTES) : $defaultImage;
+    $imageUrl = isset($app['icon_path']) ? $app['icon_path'] : $defaultImage;
     
-    return '<img src="' . $imageUrl . '" 
-                 class="card-img-top" 
-                 alt="' . displayAppName($app) . '"
-                 onerror="this.src=\'' . $defaultImage . '\'">';
+    $altText = isset($app['name']) ? $app['name'] : 'Application Image';
+    return '<img src="' . $imageUrl . '" class="card-img-top" alt="' . $altText . '">';
 }
 
 /**
