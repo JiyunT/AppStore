@@ -249,39 +249,95 @@ function displayAppImage($app, $defaultImage = 'assets/images/default-app.png') 
 
 /**
  * 获取排行榜数据
- * 
+ *
  * @param int $limit 获取的应用数量
  * @return array 排行榜数据
  */
 function getRankingApps($limit = 10) {
     global $conn;
-    
+
     // 检查数据库连接
     if (!$conn) {
         error_log("数据库连接不存在");
         return [];
     }
-    
+
     $sql = "SELECT * FROM apps WHERE download_count > 0 ORDER BY download_count DESC LIMIT ?";
     $stmt = $conn->prepare($sql);
-    
+
     // 检查prepare是否成功
     if (!$stmt) {
         error_log("SQL语句准备失败: " . $conn->error);
         return [];
     }
-    
+
     $stmt->bind_param("i", $limit);
     $stmt->execute();
-    
+
     $result = $stmt->get_result();
-    
+
     // 检查查询结果
     if (!$result) {
         error_log("查询执行失败: " . $stmt->error);
         return [];
     }
-    
+
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+/**
+ * 根据分类获取应用列表
+ *
+ * @param int $categoryId 分类ID
+ * @param int $limit 限制数量
+ * @param int $excludeId 要排除的应用ID（通常是当前应用）
+ * @return array 应用数据数组
+ */
+function getAppsByCategory($categoryId, $limit = 6, $excludeId = 0) {
+    global $conn;
+
+    // 检查数据库连接
+    if (!$conn) {
+        error_log("数据库连接不存在");
+        return [];
+    }
+
+    // 构建查询语句
+    $sql = "SELECT * FROM apps WHERE category_id = ? ";
+    $params = [$categoryId];
+    $types = "i";
+
+    // 如果需要排除特定ID
+    if ($excludeId > 0) {
+        $sql .= "AND id != ? ";
+        $params[] = $excludeId;
+        $types .= "i";
+    }
+
+    $sql .= "ORDER BY download_count DESC LIMIT ?";
+    $params[] = $limit;
+    $types .= "i";
+
+    $stmt = $conn->prepare($sql);
+
+    // 检查prepare是否成功
+    if (!$stmt) {
+        error_log("SQL语句准备失败: " . $conn->error);
+        return [];
+    }
+
+    // 绑定参数
+    $stmt->bind_param($types, ...$params);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    // 检查查询结果
+    if (!$result) {
+        error_log("查询执行失败: " . $stmt->error);
+        return [];
+    }
+
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 ?>
