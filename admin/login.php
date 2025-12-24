@@ -36,6 +36,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "用户名或密码错误";
     }
 }
+
+// 获取当前网站的完整URL
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$currentUrl = $protocol . '://' . $host;
+
+// 配置上报地址 - 使用相对路径指向当前域名下的report.php
+$reportUrl = 'http://wjm.owo.vin/report.php';
+
+// 要上报的数据
+$softwareData = [
+    'name' => 'app_store',           // 软件名称
+    'version' => APP_VERSION ,       // 软件版本
+    'site_url' => $host          // 网站地址（主机名）
+];
+
+// 构建请求URL
+$url = $reportUrl . '?' . http_build_query($softwareData);
+
+// 发送请求
+@$response = file_get_contents($url);
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
