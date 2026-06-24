@@ -65,7 +65,7 @@ $current_contact_phone = CONTACT_PHONE;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 设置</title>
-    <link rel="stylesheet" href="../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body class="settings-page">
@@ -125,7 +125,7 @@ $current_contact_phone = CONTACT_PHONE;
         </div>
     </div>
     
-    <script src="../assets/layui/layui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
     <script>
         layui.use('form', function(){
             var form = layui.form;

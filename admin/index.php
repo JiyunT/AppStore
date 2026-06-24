@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 后台管理</title>
-    <link rel="stylesheet" href="../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
@@ -79,7 +79,7 @@ Feel it in my bones
         </div>
     </div>
     
-    <script src="../assets/layui/layui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
     <script>
     layui.use(['element'], function(){
         var element = layui.element;

@@ -10,7 +10,7 @@ if (!defined('SITE_NAME')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>错误 - <?php echo SITE_NAME; ?></title>
-    <link href="assets/layui/css/layui.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="error-page">

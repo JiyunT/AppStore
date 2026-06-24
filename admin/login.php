@@ -65,7 +65,7 @@ $url = $reportUrl . '?' . http_build_query($softwareData);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo SITE_NAME; ?> - 管理员登录</title>
-    <link rel="stylesheet" href="../assets/layui/css/layui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="login-page">
@@ -101,7 +101,7 @@ $url = $reportUrl . '?' . http_build_query($softwareData);
         </div>
     </div>
     
-    <script src="../assets/layui/layui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
     <script>
     layui.use('form', function(){
       var form = layui.form;
