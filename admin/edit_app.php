@@ -55,16 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - 编辑应用</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body class="edit-app-page">
+<?php $pageTitle = '编辑应用'; require 'header.php'; ?><body class="edit-app-page">
     <?php include 'sidebar.php'; ?>
 
     <div class="main-content container-fluid py-4">
@@ -144,12 +135,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
-    <script>
-    layui.use('form', function(){
-      var form = layui.form;
-      form.render();
-    });
-    </script>
-</body>
-</html>
+<?php $layuiInit = "layui.use('form', function(){ var form = layui.form; form.render(); });"; require 'footer.php'; ?>

@@ -14,16 +14,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - 关于</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body>
+<?php $pageTitle = '关于'; require 'header.php'; ?>
     <div class="layui-layout layui-layout-admin">
         <?php include 'sidebar.php'; ?>
         
@@ -69,6 +60,4 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
-</body>
-</html>
+<?php require 'footer.php'; ?>

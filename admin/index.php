@@ -14,16 +14,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - 后台管理</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body>
+<?php $pageTitle = '后台管理'; require 'header.php'; ?>
     <div class="layui-layout layui-layout-admin">
         <?php include 'sidebar.php'; ?>
         
@@ -79,11 +70,4 @@ Feel it in my bones
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
-    <script>
-    layui.use(['element'], function(){
-        var element = layui.element;
-    });
-    </script>
-</body>
-</html>
+<?php $layuiInit = "layui.use(['element'], function(){ var element = layui.element; });"; require 'footer.php'; ?>

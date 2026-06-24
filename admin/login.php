@@ -101,15 +101,7 @@ $url = $reportUrl . '?' . http_build_query($softwareData);
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
-    <script>
-    layui.use('form', function(){
-      var form = layui.form;
-      form.render();
-    });
-    </script>
-</body>
-</html>
+    <?php $layuiInit = "layui.use('form', function(){ var form = layui.form; form.render(); });"; require 'footer.php'; ?>
 
 <!--                 
 Walking through a crowd the village is aglow

@@ -59,16 +59,7 @@ $current_site_name = SITE_NAME;
 $current_contact_email = CONTACT_EMAIL;
 $current_contact_phone = CONTACT_PHONE;
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?> - 设置</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/css/layui.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body class="settings-page">
+<?php $pageTitle = '设置'; require 'header.php'; ?><body class="settings-page">
     <div class="layui-layout layui-layout-admin">
         <?php include 'sidebar.php'; ?>
 
@@ -125,12 +116,4 @@ $current_contact_phone = CONTACT_PHONE;
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.7/dist/layui.js"></script>
-    <script>
-        layui.use('form', function(){
-            var form = layui.form;
-            form.render();
-        });
-    </script>
-</body>
-</html>
+<?php $layuiInit = "layui.use('form', function(){ var form = layui.form; form.render(); });"; require 'footer.php'; ?>

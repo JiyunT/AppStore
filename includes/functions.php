@@ -48,10 +48,28 @@ function getAppDetails($id) {
 function getAllCategories() {
     global $conn;
     
+    $cacheKey = 'categories_cache';
+    $cacheTTL = 300;
+    
+    $useSession = (session_status() === PHP_SESSION_ACTIVE);
+    
+    if ($useSession && isset($_SESSION[$cacheKey]) && isset($_SESSION[$cacheKey . '_time'])) {
+        if (time() - $_SESSION[$cacheKey . '_time'] < $cacheTTL) {
+            return $_SESSION[$cacheKey];
+        }
+    }
+    
     $sql = "SELECT * FROM categories";
     $result = $conn->query($sql);
     
-    return $result->fetch_all(MYSQLI_ASSOC);
+    $categories = $result->fetch_all(MYSQLI_ASSOC);
+    
+    if ($useSession) {
+        $_SESSION[$cacheKey] = $categories;
+        $_SESSION[$cacheKey . '_time'] = time();
+    }
+    
+    return $categories;
 }
 
 /**

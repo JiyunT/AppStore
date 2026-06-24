@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS apps (
     size VARCHAR(50),
     screenshots TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    INDEX idx_category_id (category_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
