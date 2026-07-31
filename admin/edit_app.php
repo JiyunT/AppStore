@@ -20,7 +20,11 @@ $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $categories = $conn->query("SELECT * FROM categories")->fetch_all(MYSQLI_ASSOC);
 
 // 获取应用详情
-$app = $conn->query("SELECT * FROM apps WHERE id = $id")->fetch_assoc();
+$stmt = $conn->prepare("SELECT * FROM apps WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$app = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 if (!$app) {
     header("Location: apps.php");
     exit;

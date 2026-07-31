@@ -17,7 +17,11 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // 获取分类详情
-$category = $conn->query("SELECT * FROM categories WHERE id = $id")->fetch_assoc();
+$stmt = $conn->prepare("SELECT * FROM categories WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$category = $stmt->get_result()->fetch_assoc();
+$stmt->close();
 if (!$category) {
     header("Location: categories.php");
     exit;

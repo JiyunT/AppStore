@@ -19,7 +19,10 @@ $apps = $conn->query("SELECT apps.*, categories.name AS category_name FROM apps 
 // 处理删除请求
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $id = intval($_GET['delete']);
-    $conn->query("DELETE FROM apps WHERE id = $id");
+    $stmt = $conn->prepare("DELETE FROM apps WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
     header("Location: apps.php");
     exit;
 }

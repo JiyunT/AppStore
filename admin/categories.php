@@ -19,7 +19,10 @@ $categories = $conn->query("SELECT * FROM categories")->fetch_all(MYSQLI_ASSOC);
 // 处理删除请求
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $id = intval($_GET['delete']);
-    $conn->query("DELETE FROM categories WHERE id = $id");
+    $stmt = $conn->prepare("DELETE FROM categories WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
     header("Location: categories.php");
     exit;
 }
